@@ -1,6 +1,6 @@
 ---
 name: Egg-Plugin-Authen-Captcha
-version: 0.01
+version: 0.02
 author:
   - 'Masatoshi Mizuno E<lt>lusheE<64>cpan.orgE<gt>'
 abstract: Plugin for Authen::Captcha.
@@ -18,7 +18,7 @@ requires:
 provides:
   Egg::Plugin::Authen::Captcha:
     file: lib/Egg/Plugin/Authen/Captcha.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.2805
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
