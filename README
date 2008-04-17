@@ -25,13 +25,6 @@ To install this module type the following:
    make test
    make install
 
-   or
-
-   perl Build.PL
-   ./Build
-   ./Build test
-   ./Build install
-
 AUTHOR
 
 Masatoshi Mizuno E<lt>lusheE<64>cpan.orgE<gt>
@@ -40,7 +33,7 @@ COPYRIGHT AND LICENCE
 
 Put the correct copyright and licence information here.
 
-Copyright (C) 2007 by Bee Flag, Corp. E<lt>http://egg.bomcity.com/E<gt>, All Rights Reserved.
+Copyright (C) 2008 by Bee Flag, Corp. E<lt>http://egg.bomcity.com/E<gt>, All Rights Reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.6 or,

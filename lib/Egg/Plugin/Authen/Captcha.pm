@@ -1,16 +1,28 @@
 package Egg::Plugin::Authen::Captcha;
 #
-# Copyright (C) 2007 Bee Flag, Corp, All Rights Reserved.
 # Masatoshi Mizuno E<lt>lusheE<64>cpan.orgE<gt>
 #
-# $Id: Captcha.pm 203 2007-10-31 05:28:17Z lushe $
+# $Id: Captcha.pm 317 2008-04-17 11:58:43Z lushe $
 #
 use strict;
 use warnings;
 use Authen::Captcha;
 use base qw/ Class::Data::Inheritable /;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
+
+__PACKAGE__->mk_classdata('authc');
+
+sub _setup {
+	my($e)= @_;
+	my $option= $e->config->{plugin_authen_captcha} ||= {};
+	__PACKAGE__->authc( Authen::Captcha->new(%$option) );
+	$e->next::method;
+}
+
+1;
+
+__END__
 
 =head1 NAME
 
@@ -62,21 +74,6 @@ Authen::Captcha object is returned.
 
   my $ac= $e->authc;
 
-=cut
-
-__PACKAGE__->mk_classdata('authc');
-
-sub _setup {
-	my($e)= @_;
-	my $option= $e->config->{plugin_authen_captcha} ||= {};
-	__PACKAGE__->authc( Authen::Captcha->new(%$option) );
-	$e->next::method;
-}
-
-1;
-
-__END__
-
 =head1 SEE ALSO
 
 L<Authen::Captcha>,
@@ -87,9 +84,9 @@ L<Egg::Release>,
 
 Masatoshi Mizuno E<lt>lusheE<64>cpan.orgE<gt>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2007 by Bee Flag, Corp. E<lt>http://egg.bomcity.com/E<gt>, All Rights Reserved.
+Copyright (C) 2008 Bee Flag, Corp. E<lt>L<http://egg.bomcity.com/>E<gt>, All Rights Reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.6 or,

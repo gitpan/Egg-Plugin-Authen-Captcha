@@ -6,9 +6,8 @@ version_from 'lib/Egg/Plugin/Authen/Captcha.pm';
 author       'Masatoshi Mizuno E<lt>lusheE<64>cpan.orgE<gt>';
 license      'perl';
 
-requires 'Egg::Release'    => 2.24;
+requires 'Egg::Release'    => 3.03;
 requires 'Authen::Captcha' => 1.02;
-requires 'Class::Data::Inheritable' => 0.06;
 
 build_requires 'Test::More';
 build_requires 'Test::Pod';

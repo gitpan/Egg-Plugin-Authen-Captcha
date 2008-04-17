@@ -1,11 +1,9 @@
 package Example;
 use strict;
 use warnings;
-use Egg qw/ -Debug
-  Dispatch::Fast
-  Debugging
-  SessionKit
-  
+use Egg qw/
+  -Debug
+  Authen::Captcha
   /;
 
 our $VERSION= '0.01';
@@ -15,25 +13,9 @@ __PACKAGE__->egg_startup(
   title      => 'Example',
   root       => '/path/to/Example',
   static_uri => '/',
-  dir => {
-    lib      => '< $e.root >/lib',
-    static   => '< $e.root >/htdocs',
-    etc      => '< $e.root >/etc',
-    cache    => '< $e.root >/cache',
-    tmp      => '< $e.root >/tmp',
-    template => '< $e.root >/root',
-    comp     => '< $e.root >/comp',
-    },
   template_path=> ['< $e.dir.template >', '< $e.dir.comp >'],
-
-  VIEW=> [
-
-    [ Template=> {
-      .....
-      ...
-      } ],
-
-    ],
+  MODEL => ['Session'],
+  VIEW  => [ ..... ],
 
   plugin_session=> {
     .....
